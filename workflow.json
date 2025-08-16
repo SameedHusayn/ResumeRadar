@@ -22,7 +22,7 @@
       "typeVersion": 1.2,
       "position": [
         220,
-        40
+        30
       ],
       "id": "049242f2-4300-462a-9aa0-4b02dfde99c1",
       "name": "Gmail Trigger",
@@ -56,7 +56,7 @@
       "typeVersion": 2.1,
       "position": [
         440,
-        160
+        155
       ],
       "id": "c610f1ed-df34-4bec-a308-ffa68b1eda74",
       "name": "Airtable",
@@ -96,7 +96,7 @@
       "typeVersion": 2.2,
       "position": [
         880,
-        160
+        155
       ],
       "id": "2873ae38-0c44-4493-a604-1088e768ec63",
       "name": "If"
@@ -109,7 +109,7 @@
       "typeVersion": 2,
       "position": [
         660,
-        160
+        155
       ],
       "id": "424f557a-1bab-4116-ad34-2f03251f44d9",
       "name": "EmailMatcher"
@@ -121,8 +121,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1540,
-        200
+        1300,
+        140
       ],
       "id": "a528ce65-eeb4-49c4-8c8d-bf152ea6f52a",
       "name": "PromptBuilder"
@@ -134,7 +134,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1320,
+        1220,
         -160
       ],
       "id": "39fc01a4-5a9b-438e-9932-e4b82f47bb4c",
@@ -146,7 +146,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        1760,
+        1640,
         -20
       ],
       "id": "ee2d7f60-58be-475c-8d54-502f0bbf0aea",
@@ -159,7 +159,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1980,
+        1860,
         -20
       ],
       "id": "08d15341-fad1-41b4-8dd1-45c19ef66e19",
@@ -190,7 +190,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1540,
+        1420,
         -20
       ],
       "id": "c18f2954-dced-4342-a0aa-66a81545f5ff",
@@ -226,7 +226,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2200,
+        2080,
         -20
       ],
       "id": "14be41de-3ef7-4258-952d-affe1c439341",
@@ -239,7 +239,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2640,
+        2400,
         -100
       ],
       "id": "e0dd0699-059a-49ba-942d-58f10aaec4b7",
@@ -250,8 +250,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        1100,
-        -170
+        1020,
+        -160
       ],
       "id": "f0c3079a-8cda-4a2c-bfde-0fc3d61037bd",
       "name": "Merge1"
@@ -276,8 +276,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        2200,
-        -320
+        1900,
+        -240
       ],
       "id": "03a33b24-68a2-4f5f-afc2-36ef1cbdb0f7",
       "name": "Google Drive",
@@ -298,8 +298,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        2420,
-        -116
+        2240,
+        -200
       ],
       "id": "2ef593bc-bd85-451b-91a4-e93c32739659",
       "name": "CombineData"
@@ -406,8 +406,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        2860,
-        -95
+        2580,
+        -100
       ],
       "id": "3cf0a49e-df9a-4cca-b245-a46838748e69",
       "name": "Google Sheets",
@@ -417,6 +417,81 @@
           "name": "Google Sheets account"
         }
       }
+    },
+    {
+      "parameters": {
+        "content": "# ResumeRadar\n\nThis workflow automates the resume screening process:\n1. Monitors Gmail for emails with PDF attachments\n2. Extracts job titles from email subjects\n3. Matches against job listings in Airtable\n4. Uses Gemini AI to analyze the resume against job requirements\n5. Saves data to Google Sheets and archives resumes in Google Drive\n\n## Setup Requirements:\n* Gmail, Google Drive, Google Sheets credentials\n* Airtable with job listings\n* Gemini API key in environment variables\n* Google Sheet for results",
+        "height": 380,
+        "width": 500
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        240,
+        -520
+      ],
+      "id": "da71f4e7-21d7-403b-8e0b-d0ce2e9ee7b1",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Job Matching Logic\n\nThis code extracts job titles from email subjects and matches against Airtable listings using:\n- Regular expressions for common application phrases\n- Smart similarity matching with synonyms handling\n\nAdjust MIN_SCORE (currently 0.60) to make matching stricter or more lenient.",
+        "height": 240,
+        "width": 380
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        540,
+        300
+      ],
+      "id": "1e73497d-9df7-403c-a89a-4555a76681f6",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Resume Processing\n\nCurrently configured to accept PDF resumes only.\n\nTo support other formats:\n1. Edit the ALLOWED set in this node\n2. Add formats like 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'\n\nThis node also extracts sender information from email headers.",
+        "height": 280,
+        "width": 420
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        -480
+      ],
+      "id": "37c8a308-2fdd-42f4-8b97-d9a25c8437dd",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## AI Prompt\n\nThis node creates a structured prompt for Gemini to:\n- Extract candidate name and phone from resume\n- Score candidate fit on a scale of 1-10\n- Provide a concise explanation\n\nCustomize the prompt to change evaluation criteria or output format.",
+        "height": 220,
+        "width": 420
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        280
+      ],
+      "id": "2528ce2a-089a-49be-9674-393d73d28c7f",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Gemini API Request Builder\n\nThis node prepares the payload for Gemini AI by:\n1. Combining the resume file with job context\n2. Structuring the prompt for consistent analysis\n3. Setting response schema for structured JSON output\n\nThe temperature setting (0.1) ensures consistent evaluations.\nAdjust the schema properties if you need different data points.",
+        "height": 260,
+        "width": 420
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1720,
+        180
+      ],
+      "id": "2161802f-3bd9-4366-926c-717b38ec5257",
+      "name": "Sticky Note4"
     }
   ],
   "pinData": {},
@@ -608,7 +683,7 @@
     "saveExecutionProgress": true,
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "c722a12d-5b1f-4cb5-ae8c-fdcc1aa75482",
+  "versionId": "62965170-c2de-4fc3-bffd-d2596db843ec",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "241556d3cf444495f115cc4ed051381e5c047247800e2729fa805d67681495ea"
