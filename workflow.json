@@ -174,7 +174,7 @@
           "parameters": [
             {
               "name": "x-goog-api-key",
-              "value": "AIzaSyBkitZ9k1zdbEgtx4cagbenkVv9zezX2F0"
+              "value": "={{$env.GEMINI_API_KEY}}"
             },
             {
               "name": "Content-Type",
@@ -608,7 +608,7 @@
     "saveExecutionProgress": true,
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "08d5c83a-92c7-4856-b51f-8c35523c31b4",
+  "versionId": "c722a12d-5b1f-4cb5-ae8c-fdcc1aa75482",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "241556d3cf444495f115cc4ed051381e5c047247800e2729fa805d67681495ea"
