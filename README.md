@@ -1,4 +1,4 @@
-# ResumeRadar
+# [ResumeRadar](https://n8n.io/workflows/7469-automate-resume-screening-with-gmail-gemini-ai-and-airtable-to-google-sheets/)
 
 ![ResumeRadar Workflow](docs/workflow-preview.png)
 
@@ -12,6 +12,9 @@ ResumeRadar is an automated resume screening and analysis tool built with n8n th
 4. **Scores applications** based on job requirements
 5. **Organizes results** in Google Sheets for easy review
 6. **Archives resumes** automatically in Google Drive
+
+This workflow is also available as a published template on n8n:  
+👉 [Automate Resume Screening with Gmail, Gemini AI, Airtable & Google Sheets](https://n8n.io/workflows/7469-automate-resume-screening-with-gmail-gemini-ai-and-airtable-to-google-sheets/)
 
 ## 📋 Features
 
